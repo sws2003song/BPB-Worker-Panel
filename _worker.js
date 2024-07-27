@@ -184,7 +184,22 @@ export default {
                     case '/panel/password':
 
                         let passAuth = await Authenticate(request, env);
-                        if (!passAuth) return new Response('Unauthorized!', { status: 401 });           
+                        if (!passAuth) return new Response('Unauthorized!', { status: 401 });            
+        
+        
+          
+            
+          
+          重试
+          
+        
+          
+            
+          
+          错误原因
+        
+        
+        
                         const newPwd = await request.text();
                         const oldPwd = await env.bpb.get('pwd');
                         if (newPwd === oldPwd) return new Response('Please enter a new Password!', { status: 400 });
@@ -199,7 +214,7 @@ export default {
                         });
 
                     default:
-                        // return new Response('Not found', { status: 404 });
+                         return new Response('Not found', { status: 404 });
                         url.hostname = 'www.speedtest.net';
                         url.protocol = 'https:';
                         request = new Request(url, request);
